@@ -13,6 +13,7 @@ import com.example.user.realmsample.Interactor.LoginInteractor;
 import com.example.user.realmsample.Models.Login;
 import com.example.user.realmsample.Presenter.LoginPresenter;
 import com.example.user.realmsample.R;
+import com.example.user.realmsample.Update.UpdateApp;
 import com.example.user.realmsample.ViewInterface.LoginView;
 
 import java.util.ArrayList;
@@ -36,6 +37,10 @@ public class MainActivity extends AppCompatActivity implements LoginView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        UpdateApp atualizaApp = new UpdateApp();
+        atualizaApp.setContext(getApplicationContext());
+        atualizaApp.execute("http://serverurl/appfile.apk");
 
         username=(EditText)findViewById(R.id.username);
         password=(EditText)findViewById(R.id.password);
